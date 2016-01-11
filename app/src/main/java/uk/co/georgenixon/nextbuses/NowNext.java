@@ -35,6 +35,8 @@ public class NowNext extends AppCompatActivity {
     private View mControlsView;
     private boolean mVisible;
 
+    public DependencyInjectionContainer Dic;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +60,8 @@ public class NowNext extends AppCompatActivity {
         // operations to prevent the jarring behavior of controls going away
         // while interacting with the UI.
         //findViewById(R.id.dummy_button).setOnTouchListener(mDelayHideTouchListener);
+
+        this.Dic = new DependencyInjectionContainer(new MinuteTimer(), new UiUpdater());
     }
 
     @Override

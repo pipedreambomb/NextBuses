@@ -8,6 +8,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import android.content.SharedPreferences;
+import android.os.Bundle;
 
 
 /**
@@ -20,6 +21,10 @@ public class NowNextTest {
     @Test
     public void OnCreate_CreatesTheSUT() throws Exception {
         NowNext sut = new NowNext();
+        sut.onCreate(new Bundle());
         assertThat(sut, is(notNullValue()));
+        assertThat(sut.Dic, is(notNullValue()));
+        assertThat(sut.Dic.MinuteTimer, is(notNullValue()));
+        assertThat(sut.Dic.UiUpdater, is(notNullValue()));
     }
 }
